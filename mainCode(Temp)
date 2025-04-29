@@ -1,3 +1,5 @@
+
+#This is just placeholder
 import tensorflow as tf
 import numpy as np
 import tensorflow_datasets as tfds
@@ -151,4 +153,4 @@ test_loss, test_accuracy = model.evaluate(X_test, Y_test)
 print("Test Accuracy", test_accuracy)
 463/463 ━━━━━━━━━━━━━━━━━━━━ 0s 576us/step - accuracy: 0.0053 - loss: 12.0173
 Test Accuracy 0.004527027253061533
- 
+
