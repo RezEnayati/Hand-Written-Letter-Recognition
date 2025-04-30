@@ -9,3 +9,6 @@ In this Project I created a live handwritten letter recognition. You can draw a 
 ## Demo
 Try It Live Here:
 [Draw a Digit ↗](https://huggingface.co/spaces/rezaenayati/Live_Digit_Recognition_Using_CNN)
+---
+## Overview
+In this project I built a handwritten digit recognition using both a Dense Neural Network and CNNs. I tested with different amount of layers and units and 
