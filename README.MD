@@ -11,4 +11,5 @@ Try It Live Here:
 [Draw a Digit ↗](https://huggingface.co/spaces/rezaenayati/Live_Digit_Recognition_Using_CNN)
 ---
 ## Overview
-In this project I built a handwritten digit recognition using both a Dense Neural Network and CNNs. I tested with different amount of layers and units and 
+In this project I built a handwritten digit recognition using both a Dense Neural Network and CNNs. I tested with different amount of layers, units, learning rates and epochs. 
+The EMNIST dataset come in 28 x 28 grayscale matrices, where each value in the matrix corresponds to how dark that pixle is. 
