@@ -12,4 +12,4 @@ Try It Live Here:
 ---
 ## Overview
 In this project I built a handwritten digit recognition using both a Dense Neural Network and CNNs. I tested with different amount of layers, units, learning rates and epochs. 
-The EMNIST dataset come in 28 x 28 grayscale matrices, where each value in the matrix corresponds to how dark that pixle is. 
+The EMNIST dataset come in 28 x 28 grayscale matrices, where each value represents the intesinty for that pixel. For the dense layers I had to unroll the matricies meaning that I had to reshape the matrix to make a vector of size 784. I then normalized the pixel values to [0,1] range by dividing by 255.0. This preprocessing step improves numerical stability and helps the model converge more efficiently during gradient descent and to make sure the gradients stay well scaled during back prop.  
