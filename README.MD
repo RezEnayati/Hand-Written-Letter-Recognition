@@ -14,5 +14,6 @@ This project is an interactive digit classifier that uses a Convolutional Neural
 --- 
 ## Live Demo: 
 [Try it out on Hugging Face Spaces](https://huggingface.co/spaces/rezaenayati/Live_Digit_Recognition_Using_CNN)
+
 Just draw a digit and hit Submit.  
 The model will return the top 3 guesses along with their confidence scores.
