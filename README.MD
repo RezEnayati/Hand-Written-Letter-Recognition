@@ -36,8 +36,9 @@ After the convolutional layers, I had to flatten the data using the **`Flatten()
   <img src="loss_curve.png" alt="Loss Curve" width="45%" />
 </p>
 
-4.Even though this model was performing slightly better than the first version, it still wasn't up to standard for detecting unseen digits. To make the model more general, I decided to use **Data Augmentation** via **`ImageDataGenerator`**, more specifically **stochastic augmentation with Keras**.
+4. Even though this model was performing slightly better than the first version, it still wasn't up to standard for detecting unseen digits. To make the model more general, I decided to use **Data Augmentation** via **`ImageDataGenerator`**, more specifically **stochastic augmentation with Keras**.
 This creates a data generator that applies **random transformations** to the training images every time they're fed to the model. These transformations simulate messy, real-world drawings by **rotating** the images, **shifting** them, and **zooming in or out** by about 10%. This ensures the model sees a slightly different version of the data in every epoch.
 This method led to **substantial improvements** in predicting real-life handwritten digits and is the final model used in the live demo.
 
+5. To fit the model to my data, after some trial and error with the new architecture, I used **15 epochs** with a **batch size of 128**. This allowed the model to reach convergence steadily, achieving a final accuracy of 99.37% on the training data. The training time war relatively fast thanks to [Google Colab's](https://colab.google/) T4 GPUs. 
 
