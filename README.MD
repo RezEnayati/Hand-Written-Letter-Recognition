@@ -5,6 +5,7 @@ This project is an interactive digit classifier that uses a Convolutional Neural
 [![Gradio](https://img.shields.io/badge/Gradio-App-blue?logo=gradio)](https://gradio.app)
 [![TensorFlow](https://img.shields.io/badge/TensorFlow-ML-orange?logo=tensorflow)](https://www.tensorflow.org/)
 [![Python](https://img.shields.io/badge/Python-3.10+-yellow?logo=python)](https://www.python.org/)
+[![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/yourcolablink)
 ---
 ## Features: 
 - **Deep CNN Architecture** with BatchNormalization and Dropout for robust performance.
