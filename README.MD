@@ -29,15 +29,15 @@ The model will return the top 3 guesses along with their confidence scores.
 After the convolutional layers, I had to flatten the data using the **`Flatten()`** method in the model to be able to feed the training examples into the single **Dense** hidden layer that I had, with **128** activation units, still using **ReLU**.
 * The output layer was a **Dense** layer with **10** units corresponding to digits **0–9**, with a **linear** activation and **L2 regularization**. I didn't use a traditional **Softmax** to get rid of intermediate values and instead ran a **softmax function after the model had made a prediction**.
 * Although this model had a high accuracy rate on the MNIST dataset, it performed extremely poorly on real human-drawn digits using the Gradio Sketchpad. To improve the model, I decided to add an extra **convolutional layer** with **128** units and ***ReLU*** activation, add **BatchNormalization** to make the gradients more stable and speed up convergence, along with **Dropout** (set to **0.25**) to make sure the model doesn't overfit by randomly dropping a fraction of neurons during training.
-* I’ve attached a picture of the final model summary and the final loss curve below to show the convergence. The loss curve is actually quite amazing — it has *textbook* loss.
+* I’ve attached a picture of the final model summary and the final loss curve below to show the convergence. The loss curve is actually quite amazing, it drops rapidly and steadily gets lower.
 
 <p align="center">
   <img src="model_summary.png" alt="Model Summary" width="45%" />
   <img src="loss_curve.png" alt="Loss Curve" width="45%" />
 </p>
---
 
-
-
+4.Even though this model was performing slightly better than the first version, it still wasn't up to standard for detecting unseen digits. To make the model more general, I decided to use **Data Augmentation** via **`ImageDataGenerator`**, more specifically **stochastic augmentation with Keras**.
+This creates a data generator that applies **random transformations** to the training images every time they're fed to the model. These transformations simulate messy, real-world drawings by **rotating** the images, **shifting** them, and **zooming in or out** by about 10%. This ensures the model sees a slightly different version of the data in every epoch.
+This method led to **substantial improvements** in predicting real-life handwritten digits and is the final model used in the live demo.
 
 
