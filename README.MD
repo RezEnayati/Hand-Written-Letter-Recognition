@@ -23,10 +23,11 @@ The model will return the top 3 guesses along with their confidence scores.
 1. The model was trained on the MNIST dataset, a collection of 28×28 grayscale images of handwritten digits. Each pixel value represents the intensity of the digit stroke, with darker pixels indicating higher stroke intensity. The dataset includes 60k training examples and 10k test examples. 
 2. After loading the data, the values in the dataset were normalized simply by dividing each digit in the dataset by 255.0 to get the values in a range of [0, 1]. This makes gradient descent more stable and helps the network converge faster by keeping input values in a small, consistent range. I also reshaped the matrices in the training and test examples to turn them into 4D arrays, which makes them compatible with the Conv2D layers in Keras.
 3. For the model architecture, I first used two **convolutional layers** with **32** and **64** units respectively, using the **ReLU** activation with a window size of **(3,3)**. After each of the convolutional layers, I did **MaxPooling** with a pool size of **(2,2)**.
-
 After the convolutional layers, I had to flatten the data using the **`Flatten()`** method in the model to be able to feed the training examples into the single **Dense** hidden layer that I had, with **128** activation units still using **ReLU**.
+The output layer was a **Dense** layer with **10** units corresponding to digits **0–9**, with a **linear** activation. With a **L2 Regularization**  I didn't use a traditional **Softmax** to get rid of intermediate values and instead ran a **softmax function after the model has made a prediction**.
+Althought this model had a high accuracy rate on the MNIST dataset, it performed extremely bad on real human drawn digits on the Gradio Sketchpad. To imporove the model I decided to add an extra **convolutional layer** with a 128 units and ***ReLU* activation, add **BatchNormalization** to make gradient more stable and speed up convergence along with **Dropout** with a value of 0.25 to make sure the model does not overfit using by randomly droping a fraction of neurons during training.
+I have attached a picture of the final model summary below. 
 
-The output layer was a **Dense** layer with **10** units corresponding to digits **0–9**, with a **linear** activation. I didn't use a traditional **Softmax** to get rid of intermediate values and instead ran a **softmax function after the model has made a prediction**.
 
 
 
