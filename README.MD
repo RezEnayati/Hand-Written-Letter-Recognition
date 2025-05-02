@@ -48,4 +48,20 @@ This creates a data generator that applies **random transformations** to the tra
 This method led to **substantial improvements** in predicting real-life handwritten digits and is the final model used in the live demo.
 
 5. To fit the model to my data, after some trial and error with the new architecture, I used **15 epochs** with a **batch size of 128**. This allowed the model to reach convergence steadily, achieving a final accuracy of 99.37% on the training data. The training time was relatively fast thanks to [Google Colab's](https://colab.google/) T4 GPUs. 
+---
+##  Technologies Used
+- Python 3.9
+- TensorFlow 2.15
+- Keras
+- Gradio
+- Hugging Face Spaces
+- Google Colab (T4 GPU)
+---
 
+## Code
+-  The training code is available in `CNN_Model_Training.ipynb`.
+-  The live app logic (Gradio + preprocessing) is in `app.py`, used for deployment on Hugging Face Spaces.
+-  The trained model is included as `cnn_model_v2.h5`.
+
+## Final Thoughts
+Thank you for reading through this project, I had a lot of fun building it. I hope you enjoy exploring it as much as I did!
