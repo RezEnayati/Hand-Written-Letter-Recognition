@@ -29,7 +29,11 @@ def predict(input_dict):
     # Predict
     prediction = model.predict(image)
     probs = tf.nn.softmax(prediction[0]).numpy()
-    return {str(i): float(probs[i]) for i in range(10)}
+
+    if probs.max() < 0.5:
+        return "Please Try Again."
+    else:
+        return {str(i): float(probs[i]) for i in range(10)}
 
 # Create the Gradio interface with appropriate settings
 sketchpad = gr.Sketchpad()  # <- clean and version-safe
