@@ -28,8 +28,14 @@ The model will return the top 3 guesses along with their confidence scores.
 * For the model architecture, I first used two **convolutional layers** with **32** and **64** units respectively, using the **ReLU** activation with a window size of **(3,3)**. After each of the convolutional layers, I did **MaxPooling** with a pool size of **(2,2)**.
 After the convolutional layers, I had to flatten the data using the **`Flatten()`** method in the model to be able to feed the training examples into the single **Dense** hidden layer that I had, with **128** activation units, still using **ReLU**.
 * The output layer was a **Dense** layer with **10** units corresponding to digits **0–9**, with a **linear** activation and **L2 regularization**. I didn't use a traditional **Softmax** to get rid of intermediate values and instead ran a **softmax function after the model had made a prediction**.
-* Although this model had a high accuracy rate on the MNIST dataset, it performed extremely poorly on real human-drawn digits using the Gradio Sketchpad. To improve the model, I decided to add an extra **convolutional layer** with **128** units and ***ReLU*** activation, add **BatchNormalization** to make the gradients more stable and speed up convergence, along with **Dropout** (set to **0.25**) to make sure the model doesn't overfit by randomly dropping a fraction of neurons during training.
+* Although this model had a high accuracy rate on the MNIST dataset, it performed extremely poorly on real human-drawn digits using the Gradio Sketchpad. To improve the model, I decided to add an extra **convolutional layer** with **128** units and **ReLU** activation, add **BatchNormalization** to make the gradients more stable and speed up convergence, along with **Dropout** (set to **0.25**) to make sure the model doesn't overfit by randomly dropping a fraction of neurons during training.
 * I’ve attached a picture of the final model summary and the final loss curve below to show the convergence. The loss curve is actually quite amazing, it drops rapidly and steadily gets lower.
+
+| Layer | Units | Activation | Notes |
+|-------|-------|------------|-------|
+| Conv2D | 32 → 64 → 128 | ReLU | (3×3) kernels, max pooling after each |
+| Dense | 128 | ReLU | |
+| Output | 10 | Linear | Softmax applied post-inference |
 
 <p align="center">
   <img src="model_summary.png" alt="Model Summary" width="45%" />
@@ -40,5 +46,5 @@ After the convolutional layers, I had to flatten the data using the **`Flatten()
 This creates a data generator that applies **random transformations** to the training images every time they're fed to the model. These transformations simulate messy, real-world drawings by **rotating** the images, **shifting** them, and **zooming in or out** by about 10%. This ensures the model sees a slightly different version of the data in every epoch.
 This method led to **substantial improvements** in predicting real-life handwritten digits and is the final model used in the live demo.
 
-5. To fit the model to my data, after some trial and error with the new architecture, I used **15 epochs** with a **batch size of 128**. This allowed the model to reach convergence steadily, achieving a final accuracy of 99.37% on the training data. The training time war relatively fast thanks to [Google Colab's](https://colab.google/) T4 GPUs. 
+5. To fit the model to my data, after some trial and error with the new architecture, I used **15 epochs** with a **batch size of 128**. This allowed the model to reach convergence steadily, achieving a final accuracy of 99.37% on the training data. The training time was relatively fast thanks to [Google Colab's](https://colab.google/) T4 GPUs. 
 
