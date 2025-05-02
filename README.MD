@@ -24,7 +24,7 @@ The model will return the top 3 guesses along with their confidence scores.
 
 2. After loading the data, the values in the dataset were normalized simply by dividing each digit in the dataset by 255.0 to get the values in a range of [0, 1]. This makes gradient descent more stable and helps the network converge faster by keeping input values in a small, consistent range. I also reshaped the matrices in the training and test examples to turn them into 4D arrays, which makes them compatible with the Conv2D layers in Keras.
 
-3. Model Setup:
+3. **Model Setup:***
 * For the model architecture, I first used two **convolutional layers** with **32** and **64** units respectively, using the **ReLU** activation with a window size of **(3,3)**. After each of the convolutional layers, I did **MaxPooling** with a pool size of **(2,2)**.
 After the convolutional layers, I had to flatten the data using the **`Flatten()`** method in the model to be able to feed the training examples into the single **Dense** hidden layer that I had, with **128** activation units, still using **ReLU**.
 * The output layer was a **Dense** layer with **10** units corresponding to digits **0–9**, with a **linear** activation and **L2 regularization**. I didn't use a traditional **Softmax** to get rid of intermediate values and instead ran a **softmax function after the model had made a prediction**.
